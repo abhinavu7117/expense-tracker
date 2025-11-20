@@ -1,24 +1,21 @@
-from flask import Flask, render_template, request, jsonify
-import expense tracker  # Import your existing Python files
+from flask import Flask, render_template
+import expense_tracker
+import datetime
 
-app = Flask(expense tracker)
+app = Flask(__name__)
 
 @app.route('/')
-def home():
-    return render_template('index.html')
-
-@app.route('/run', methods=['POST'])
-def run_script():
+@app.route('/output')
+def show_output():
     try:
-        # Get input from web form
-        user_input = request.form.get('input_data')
+        # Run your expense tracker
+        result = expense_tracker.main()  # Adjust function name as needed
         
-        # Call your existing Python function
-        result = your_main_script.main_function(user_input)
-        
-        return render_template('result.html', result=result)
+        return render_template('output.html', 
+                             result=result,
+                             last_updated=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     except Exception as e:
-        return f"Error: {str(e)}"
+        return render_template('output.html', error=str(e))
 
-if expense tracker == 'expense tracker':
+if __name__ == '__main__':
     app.run(debug=True)
