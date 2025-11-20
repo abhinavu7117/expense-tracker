@@ -16,10 +16,11 @@ To build this project, we will need the following libraries:
     b. Ttk.Treeview – To display a table in the GUI window.
   2. Tkcalender.DateEntry – To enter a date.
   3. SQLite – To connect the Python script to the SQL database.
+  4. flask-to help run the code
 
 Only the Tkinter library comes pre-installed with Python, so you need to run the following command in your terminal to install them
   
-    -m pip install tkcalender sqlite
+    -m pip install tkcalender sqlite flask
 
 
 Project File Structure:
@@ -86,6 +87,11 @@ Explanation:
 7. The frame on the bottom-right side of the window contains a Treeview object. This acts as a table where the data from the database tables is displayed.
 
 8. The frame on the top-right side of the window contains the buttons that can perform certain operations on the expense selected in the table, or the database as a whole such as editing the selected expense, converting it to words, delete it or delete the entire database.
+
+
+To run the code:
+
+
 
 
 OUTPUT:
